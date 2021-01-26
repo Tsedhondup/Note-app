@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" href="../styles/noteApp.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/a27b97f028.js" crossorigin="anonymous" defer></script>
+    <!-- <script src="../../../src/project-components/note-component/noteApp.js" type="module" defer></script> -->
+    <script src="../scripts/noteApp.js" type="module" defer></script>
+    <title>NoteDaily</title>
+</head>
+
+<body>
+    <!-------------- form template : one --------------->
+    <template class="form-temlate">
+        <form class="note-ui">
+            <div class="buttons">
+                <button class="save-note">save</button>
+                <button class="close-note">✕</button>
+            </div>
+
+            <input class="note-title" type="text" name="note-title" placeholder="Title" autofocus="autofocus"
+                maxlength="100" required />
+            <textarea class="note-body" name="note-body" placeholder="NoteDaily" wrap="soft" dirname="note_area.dir"
+                required maxlength="6000"></textarea>
+            <div class="current-notes">
+                <h3>Current notes</h3>
+                <div class="unsave-container"></div>
+            </div>
+
+        </form>
+    </template>
+    <!-------------- form template : two --------------->
+
+    <template class="form-template-two">
+        <form class="note-ui">
+            <div class="buttons">
+                <!-- <p class="date-time"></p> -->
+                <button class="save-note" disabled>save</button>
+                <button class="close-note" disabled>✕</button>
+            </div>
+
+            <input class="note-title-b" type="text" name="note-title" placeholder="Title" autofocus="autofocus"
+                maxlength="100" required disabled />
+            <textarea class="note-body-b" name="note-body" placeholder="NoteDaily" wrap="soft" dirname="note_area.dir"
+                required disabled maxlength="6000"></textarea>
+            <div class="current-notes">
+                <h3>Current notes</h3>
+                <div class="unsave-container"></div>
+            </div>
+        </form>
+    </template>
+
+    <!--------------- app info template ------------->
+    <template class="app-info-template">
+        <div class="app-info">
+            <p class="app-name">
+                <b>App name</b>: <em>NoteDaily</em>
+            </p>
+            <p class="p-header"><b>Purpose</b> : JavaScript study project</p>
+
+            <p class="author">
+                Built by <a href="#">Tsering Dhondup</a>
+            </p>
+
+            <button>
+                return back
+            </button>
+        </div>
+    </template>
+    <!----------- app-info container ------------>
+    <div class="app-info-container"></div>
+    <!------------- welcome page ----------------->
+    <div class="welcome-page">
+        <div class="welcome-page-msg">
+            <h2>NoteDaily</h2>
+            <p>Made by <em>Tsering Dhondup</em> </p>
+        </div>
+
+    </div>
+    <!-------------- note area -------------------->
+
+    <div class="show-side-note-list">
+        <h3>Notes-<em>0</em></h3>
+    </div>
+
+    <div class="top-most-tools-container">
+        <article class="tools-container">
+            <div class="open-close-tools-btn">
+                <p>
+                    <em>Tools section ✻</em>
+                    <em>▲</em>
+                </p>
+            </div>
+
+            <section class="tools-content-1">
+                <div class="open-menu">
+                    <p>
+                        notes
+                        <!-- &#9776; -->
+                    </p>
+                </div>
+                <div class="font-family-wrapper">
+                    <input type="text" placeholder="font" id="font-family" />
+                    <div class="font-list">
+                        <ul>
+                            <li class="close-side-font">✕</li>
+                            <li>Times New Roman</li>
+                            <li>Lucida Bright</li>
+                            <li>Rockwell Extra Bold</li>
+                            <li>Didot</li>
+                            <li>Courier</li>
+                            <li>Monaco</li>
+                            <li>Comic Sans</li>
+                            <li>Apple Chancery</li>
+                            <li>Bradley Hand</li>
+                            <li>Brush Script MT</li>
+                            <li>Impact</li>
+                            <li>Luminari</li>
+                            <li>Chalkduster</li>
+                            <li>Marker Felt</li>
+                            <li>Trattatello</li>
+                            <li>Arnoldboecklin</li>
+                            <li>Copperplate</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-------------------------------------------------------->
+                <div class="font-size-wrapper">
+                    <input type="number" placeholder="size" id="font-size" />
+                    <ul class="font-size-list">
+                    </ul>
+                </div>
+                <!-------------------------------------------------------->
+
+                <div class="color-wrapper">
+                    <input type="text" name="name" placeholder="color" id="font-color" autocomplete="off" />
+                    <div class="color-table">
+                        <ul>
+                            <li class="close-side-color">✕</li>
+                            <li>Black</li>
+                            <li>Grey</li>
+                            <li>Silver</li>
+                            <li>White</li>
+                            <li>Purple</li>
+                            <li>Magenta</li>
+                            <li>Indigo</li>
+                            <li>Navy</li>
+                            <li>Blue</li>
+                            <li>Lavender</li>
+                            <li>Teal</li>
+                            <li>Pink</li>
+                            <li>Crimson</li>
+                            <li>Red</li>
+                            <li>Maroon</li>
+                            <li>Brown</li>
+                            <li>Chocolate</li>
+                            <li>Orange</li>
+                            <li>Yellow</li>
+                            <li>Green</li>
+                            <li>Olive</li>
+                            <li>Gold</li>
+                        </ul>
+                    </div>
+                    <div class="color-chart">
+                        <p class="tiles-chart">
+                        </p>
+                        <p class="rgb-value">
+                            <input type="number" max="255" min="0" id="r-value" value="0">
+                            <input type="number" max="255" min="0" id="g-value" value="0">
+                            <input type="number" max="255" min="0" id="b-value" value="0">
+                            <input type="text" id="hex-code" value="#000000">
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <p id="font-bold">B</p>
+                </div>
+                <div>
+                    <p id="font-italic">I</p>
+                </div>
+                <div>
+                    <p id="font-underline">U</p>
+                </div>
+                <div id="align-left"><i class="fas fa-align-left"></i></div>
+                <div id="align-center"><i class="fas fa-align-center"></i></div>
+                <div id="align-right"><i class="fas fa-align-right"></i></div>
+                <div id="edit" title="edit note">
+                    <p>edit</p>
+                </div>
+                <div id="write-new"><i class="fas fa-pencil-alt"></i></div>
+                <div id="add-new">
+                    <p>✚</p>
+                </div>
+                <div id="app-name">
+                    <p> NoteDaily</p>
+                </div>
+                <div class="empty-div"></div>
+                <div class="empty-div"></div>
+
+            </section>
+        </article>
+    </div>
+
+
+    <section class="aside-notecontainer-wrapper">
+        <!------------------- aside menu ------------------->
+        <aside class="aside_menu">
+            <ul>
+                <li class="close-menu">✕</li>
+                <ul class="notes-list">
+                    <li id="notes-header">
+                        notes
+                    </li>
+                </ul>
+                <!-- <li id="stars"><a href="#">stars</a></li>
+      <li id="trash"><a href="#">trash</a></li> -->
+            </ul>
+        </aside>
+        <!------------------- form/note area  -------------------------->
+        <article class="note_container">
+            <form class="note-ui">
+                <div class="buttons">
+                    <button class="save-note">save</button>
+                    <button class="close-note">✕</button>
+                </div>
+
+                <input class="note-title" type="text" name="note-title" placeholder="Title" autofocus="autofocus"
+                    maxlength="100" required />
+                <textarea class="note-body" name="note-body" placeholder="NoteDaily" wrap="soft" dirname="note_area.dir"
+                    required maxlength="6000"></textarea>
+                <div class="current-notes">
+                    <h3>Current notes</h3>
+                    <div class="unsave-container"></div>
+                </div>
+
+            </form>
+        </article>
+    </section>
+
+</body>
+
+</html>
